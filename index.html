@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AfriBook - Un livre vivant où le monde se rencontre</title>
+<meta name="description" content="AfriBook est un réseau social né en Afrique, mais ouvert au monde. Développé par Tshitenge Jean Claude.">
+<style>
+:root{--bg:#fff;--fg:#14213d;--muted:#4a5568;--brand:#1550E0;--soft:#eef3ff;--on-brand:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1526;--fg:#eef2fb;--muted:#b4bfd6;--brand:#5b8cff;--soft:#16233f;--on-brand:#0d1526}}
+:root[data-theme="dark"]{--bg:#0d1526;--fg:#eef2fb;--muted:#b4bfd6;--brand:#5b8cff;--soft:#16233f;--on-brand:#0d1526}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65;font-size:17px}
+main{max-width:680px;margin:0 auto;padding:32px 20px 48px}
+.logo{display:block;width:230px;max-width:70%;height:auto;margin:0 auto 20px;background:#fff;border-radius:16px;padding:8px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tag{text-align:center}
+h1{font-size:2.6rem;line-height:1.1;margin:0 0 8px;color:var(--brand)}
+h2{font-size:1.35rem;margin:40px 0 12px}
+.tag{font-size:1.15rem;color:var(--muted);margin:0 0 24px}
+p{margin:0 0 14px}
+ul{padding-left:20px;margin:0}
+li{margin-bottom:8px}
+.btn{display:block;text-align:center;background:var(--brand);color:var(--on-brand);text-decoration:none;font-weight:700;padding:14px 22px;border-radius:10px;margin:8px 0}
+.note{font-size:.92rem;color:var(--muted)}
+.box{background:var(--soft);border-radius:12px;padding:16px 18px}
+a{color:var(--brand)}
+footer{margin-top:40px;font-size:.9rem;color:var(--muted)}
+h3{font-size:1.05rem;margin:22px 0 8px}
+section{scroll-margin-top:16px}
+hr{border:none;border-top:1px solid var(--soft);margin:44px 0}
+.acc{border:1px solid var(--soft);border-radius:12px;margin-bottom:10px;overflow:hidden;scroll-margin-top:16px}
+.acc summary{cursor:pointer;padding:14px 16px;font-weight:700;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--soft)}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:'+';font-weight:400;font-size:1.3rem;flex:none;color:var(--brand)}
+.acc[open] summary::after{content:'–'}
+.acc .accbody{padding:14px 16px 18px}
+.acc .accbody p:last-child,.acc .accbody ul:last-child{margin-bottom:0}
+.acc h4{font-size:.95rem;margin:16px 0 6px}
+.acc h4:first-child{margin-top:0}
+</style>
+</head>
+<body>
+<main>
+<img class="logo" alt="Logo AfriBook" src="data:image/webp;base64,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">
+<h1 class="sr">AfriBook</h1>
+<p class="tag">Un livre vivant où le monde se rencontre, partage, apprend et découvre.</p>
+<a class="btn" href="https://drive.google.com/uc?export=download&amp;id=1FZS-lun-OORaDj124cj9mkzbXW-6g0B9">Télécharger AfriBook (APK)</a>
+<p class="note">Après le téléchargement, si Android affiche un avertissement, autorisez l'installation depuis cette source dans les paramètres, puis ouvrez le fichier AfriBook.apk et installez l'application.</p>
+
+<h2>Description</h2>
+<p>AfriBook est un réseau social né en Afrique, mais ouvert au monde.</p>
+<p>Fondé par le chercheur congolais Tshitenge Jean Claude, le nom AfriBook associe deux mots : « Afri » et « Book ».</p>
+<p>« Afri » fait référence à l'Afrique, le continent où l'idée d'AfriBook est née et où le projet a été conçu. Cela ne signifie pas qu'AfriBook est réservé aux Africains ou destiné uniquement à l'Afrique. Son origine est africaine, mais sa vision est mondiale.</p>
+<p>« Book », qui signifie « livre », représente l'esprit même de la plateforme. Un livre permet de découvrir le monde, d'apprendre, de partager des connaissances, de raconter des histoires et de rencontrer, à travers ses pages, des réalités différentes des nôtres.</p>
+<p>AfriBook reprend cette idée : chaque publication est comme une nouvelle page, chaque utilisateur contribue à écrire un grand livre vivant où circulent des idées, des connaissances, des expériences et des histoires.</p>
+<p>AfriBook est donc plus qu'un simple réseau social. C'est une vision : créer un espace où les personnes peuvent partager, apprendre, découvrir et se rapprocher, au-delà des frontières et des différences.</p>
+<p>Une idée née en Afrique, ouverte au monde.</p>
+
+<h2>Fonctionnalités</h2>
+<ul>
+<li>Créer un compte et personnaliser son profil</li>
+<li>Publier des textes, photos et vidéos</li>
+<li>Suivre d'autres utilisateurs</li>
+<li>Aimer, réagir, commenter et partager des publications</li>
+<li>Envoyer et recevoir des messages privés</li>
+<li>Consulter un fil d'actualité personnalisé</li>
+<li>Rechercher des utilisateurs et des publications</li>
+<li>Enregistrer des publications</li>
+<li>Prochainement : traduire les publications dans la langue de son choix</li>
+<li>Utiliser AfriBook en français, anglais, espagnol et portugais</li>
+<li>Créer un compte personnel, un compte d'entreprise, d'organisation ou d'institution publique</li>
+</ul>
+
+<h2>Contact</h2>
+<div class="box">
+<p>Pour toute question, suggestion ou demande d'assistance, contactez l'équipe AfriBook :</p>
+<p>E-mail : <a href="mailto:afribooksupport@gmail.com">afribooksupport@gmail.com</a><br>
+Téléphone : <a href="tel:+243971028341">+243 97 102 83 41</a></p>
+</div>
+
+<hr>
+
+<section id="confidentialite">
+<h2>Politique de confidentialité</h2>
+<p class="note">Dernière mise à jour : 2026. Touchez une section pour la lire.</p>
+
+<details class="acc" id="c1"><summary>1. Données que nous collectons</summary><div class="accbody">
+<ul>
+<li><strong>Informations de compte :</strong> nom, adresse e-mail ou numéro de téléphone, mot de passe (stocké de façon chiffrée), photo de profil.</li>
+<li><strong>Contenus publiés :</strong> textes, photos, vidéos, commentaires, réactions et messages privés que vous envoyez via l'application.</li>
+<li><strong>Données d'utilisation :</strong> interactions avec les publications, historique de connexion, type d'appareil et de navigateur, adresse IP approximative.</li>
+<li><strong>Données de paiement :</strong> lorsque vous utilisez une fonctionnalité payante (vérification, options premium, etc.), le paiement est traité par un prestataire externe (mobile money, Stripe ou équivalent). AfriBook ne stocke jamais vos identifiants bancaires, numéros de carte complets ou codes secrets — ces informations restent uniquement entre vous et le prestataire de paiement.</li>
+</ul>
+</div></details>
+
+<details class="acc" id="c2"><summary>2. Comment nous utilisons ces données</summary><div class="accbody">
+<ul>
+<li>Faire fonctionner et améliorer l'application (fil d'actualité, recherche, messagerie).</li>
+<li>Assurer la sécurité du compte et prévenir les fraudes ou abus.</li>
+<li>Vous contacter pour des raisons liées au service (support, sécurité du compte).</li>
+<li>Respecter nos obligations légales.</li>
+</ul>
+<p>Nous ne vendons pas vos données personnelles à des tiers.</p>
+</div></details>
+
+<details class="acc" id="c3"><summary>3. Stockage et hébergement</summary><div class="accbody">
+<p>Vos données sont hébergées auprès de prestataires techniques reconnus (base de données, hébergement serveur, stockage de fichiers médias) qui appliquent des mesures de sécurité standard de l'industrie. Les photos et vidéos que vous publiez sont stockées de façon sécurisée et ne sont accessibles que selon les paramètres de confidentialité que vous choisissez sur votre compte.</p>
+</div></details>
+
+<details class="acc" id="c4"><summary>4. Vos droits</summary><div class="accbody">
+<ul>
+<li>Accéder aux données associées à votre compte.</li>
+<li>Corriger ou mettre à jour vos informations directement depuis les paramètres du compte.</li>
+<li>Demander la suppression de votre compte et des données associées, en nous contactant à l'adresse ci-dessous.</li>
+<li>Retirer votre consentement à tout moment, sans affecter les traitements déjà effectués.</li>
+</ul>
+</div></details>
+
+<details class="acc" id="c5"><summary>5. Âge minimum</summary><div class="accbody">
+<p>AfriBook est destiné aux personnes âgées d'au moins 13 ans. Si nous apprenons qu'un compte a été créé par une personne de moins de 13 ans, ce compte pourra être suspendu ou supprimé.</p>
+</div></details>
+
+<details class="acc" id="c6"><summary>6. Modifications de cette politique</summary><div class="accbody">
+<p>Cette politique de confidentialité peut être mise à jour périodiquement. Toute modification importante sera signalée via l'application ou ce site.</p>
+</div></details>
+
+<details class="acc" id="c7"><summary>7. Nous contacter</summary><div class="accbody">
+<p>Pour toute question relative à vos données personnelles :</p>
+<p>E-mail : <a href="mailto:afribooksupport@gmail.com">afribooksupport@gmail.com</a><br>
+Téléphone : <a href="tel:+243971028341">+243 97 102 83 41</a></p>
+</div></details>
+</section>
+
+<hr>
+
+<section id="conditions">
+<h2>Conditions d'utilisation</h2>
+<p class="note">Dernière mise à jour : 2026. Touchez une section pour la lire.</p>
+
+<details class="acc" id="u1"><summary>1. Acceptation des conditions</summary><div class="accbody">
+<p>En créant un compte ou en utilisant AfriBook, vous acceptez les présentes conditions d'utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser l'application.</p>
+</div></details>
+
+<details class="acc" id="u2"><summary>2. Éligibilité</summary><div class="accbody">
+<p>Vous devez avoir au moins 13 ans pour créer un compte AfriBook. En vous inscrivant, vous confirmez que les informations fournies sont exactes.</p>
+</div></details>
+
+<details class="acc" id="u3"><summary>3. Votre compte</summary><div class="accbody">
+<ul>
+<li>Vous êtes responsable de la confidentialité de votre mot de passe et de toute activité effectuée depuis votre compte.</li>
+<li>Un compte est personnel, sauf pour les comptes d'entreprise, d'organisation ou d'institution publique prévus par l'application.</li>
+<li>Signalez-nous immédiatement toute utilisation non autorisée de votre compte.</li>
+</ul>
+</div></details>
+
+<details class="acc" id="u4"><summary>4. Contenus interdits</summary><div class="accbody">
+<p>Il est interdit d'utiliser AfriBook pour publier, diffuser ou promouvoir des contenus qui :</p>
+<h4>4.1. Contiennent des informations fausses présentées comme des faits</h4>
+<p>Les contenus présentant volontairement une information inventée comme un fait peuvent être concernés par une modération. Une opinion, une analyse, une critique ou un commentaire politique ne constitue pas automatiquement une fausse information. Lorsqu'un signalement concerne une information présentée comme factuelle, AfriBook peut examiner les éléments disponibles, notamment les sources fiables, les médias reconnus ou les organismes de vérification des faits.</p>
+<h4>4.2. Sont insultants ou gravement offensants</h4>
+<p>Les insultes, attaques personnelles et propos visant à humilier ou dégrader une personne peuvent faire l'objet d'une modération.</p>
+<h4>4.3. Constituent du harcèlement</h4>
+<p>Il est interdit d'utiliser AfriBook pour harceler, intimider, menacer ou cibler de manière répétée une personne.</p>
+<h4>4.4. Constituent une usurpation d'identité</h4>
+<p>Il est interdit de se faire passer frauduleusement pour une autre personne, une personnalité, une entreprise, une institution ou une organisation.</p>
+<h4>4.5. Incitent à la haine</h4>
+<p>Les contenus qui encouragent la haine ou la discrimination contre des personnes ou des groupes peuvent être supprimés.</p>
+<h4>4.6. Constituent du spam ou une arnaque</h4>
+<p>Sont notamment interdits :</p>
+<ul>
+<li>les campagnes de spam ;</li>
+<li>les escroqueries ;</li>
+<li>les faux concours ;</li>
+<li>les faux investissements ;</li>
+<li>les liens frauduleux ;</li>
+<li>les tentatives visant à obtenir frauduleusement des informations personnelles ou financières.</li>
+</ul>
+<h4>4.7. Contiennent du contenu explicite interdit</h4>
+<p>Les contenus sexuellement explicites ou autres contenus interdits par les règles d'AfriBook peuvent être supprimés. AfriBook applique également des règles particulières destinées à protéger les mineurs.</p>
+</div></details>
+
+<details class="acc" id="u5"><summary>5. Système de signalement</summary><div class="accbody">
+<p>AfriBook permet aux utilisateurs de signaler un contenu ou un compte qu'ils considèrent comme contraire aux présentes Conditions d'utilisation.</p>
+<p>Les catégories de signalement comprennent notamment :</p>
+<ul>
+<li>Fausses informations</li>
+<li>Propos insultants</li>
+<li>Harcèlement</li>
+<li>Usurpation d'identité</li>
+<li>Haine</li>
+<li>Spam / arnaque</li>
+<li>Contenu explicite</li>
+<li>Autre</li>
+</ul>
+<p>Lorsque l'utilisateur sélectionne « Autre », il peut être invité à expliquer le motif de son signalement.</p>
+<h4>5.1. Examen des signalements</h4>
+<p>Un signalement ne signifie pas automatiquement que le contenu signalé constitue une violation. Les signalements peuvent être examinés par l'équipe chargée de la modération d'AfriBook. AfriBook ne procède pas nécessairement à une suppression automatique sur la seule base d'un signalement. Après examen, AfriBook peut notamment :</p>
+<ul>
+<li>considérer que le contenu respecte les règles et ne prendre aucune mesure ;</li>
+<li>supprimer le contenu concerné ;</li>
+<li>appliquer une restriction au compte ;</li>
+<li>demander des informations supplémentaires ;</li>
+<li>prendre toute autre mesure prévue par les règles de la plateforme.</li>
+</ul>
+</div></details>
+
+<details class="acc" id="u6"><summary>6. Signalements abusifs</summary><div class="accbody">
+<p>Le système de signalement ne doit pas être utilisé pour harceler un utilisateur, faire supprimer abusivement ses publications ou tenter de faire taire une opinion simplement parce qu'elle déplaît. Les signalements volontairement faux ou répétés de manière abusive peuvent eux-mêmes entraîner des mesures sur le compte concerné.</p>
+</div></details>
+
+<details class="acc" id="u7"><summary>7. Liberté d'expression et opinions</summary><div class="accbody">
+<p>AfriBook permet aux utilisateurs d'exprimer leurs opinions, notamment sur les sujets sociaux, économiques, culturels et politiques, dans le respect des présentes conditions. Une opinion politique n'est pas considérée comme une fausse information simplement parce qu'elle est contestée ou qu'une autre personne n'est pas d'accord avec elle. En revanche, une publication présentant comme un fait une information vérifiable et manifestement fausse peut faire l'objet d'un examen lorsqu'elle est signalée.</p>
+</div></details>
+
+<details class="acc" id="u8"><summary>8. Vérification d'identité</summary><div class="accbody">
+<p>Pour certaines fonctionnalités ou dans certaines situations liées à la sécurité de la plateforme, AfriBook peut demander à un utilisateur de fournir des documents permettant de vérifier son identité. Lorsqu'une vérification est demandée, l'utilisateur peut disposer d'un délai indiqué par AfriBook pour fournir les informations requises. Dans le système de modération que nous avons prévu, un délai de 7 jours peut notamment être accordé lorsqu'une vérification d'identité est demandée. En cas de non-réponse, de documents insuffisants ou d'informations ne permettant pas de confirmer l'identité du compte, AfriBook peut prendre des mesures pouvant aller jusqu'à la suppression du compte, conformément aux règles applicables.</p>
+</div></details>
+
+<details class="acc" id="u9"><summary>9. Comptes certifiés</summary><div class="accbody">
+<p>AfriBook peut proposer différents niveaux de certification ou de vérification. La certification ne signifie pas que toutes les publications du compte sont approuvées par AfriBook. La certification peut notamment permettre d'indiquer publiquement qu'un compte a été vérifié selon les critères définis par AfriBook. AfriBook peut retirer une certification lorsqu'un compte ne respecte plus les conditions applicables.</p>
+</div></details>
+
+<details class="acc" id="u10"><summary>10. Propriété intellectuelle</summary><div class="accbody">
+<p>Vous conservez vos droits sur les contenus que vous publiez, sous réserve des droits que vous accordez à AfriBook pour permettre le fonctionnement de la plateforme. En publiant un contenu sur AfriBook, vous autorisez AfriBook à l'héberger, le stocker, l'afficher et le rendre accessible aux utilisateurs selon les fonctionnalités de la plateforme. Vous garantissez, dans la mesure applicable, que vous disposez des droits nécessaires pour publier ce contenu. Vous ne devez pas publier de contenu protégé appartenant à autrui sans autorisation lorsque celle-ci est nécessaire.</p>
+</div></details>
+
+<details class="acc" id="u11"><summary>11. Respect de la vie privée</summary><div class="accbody">
+<p>AfriBook peut collecter et traiter certaines informations nécessaires au fonctionnement de ses services. Les modalités de collecte, d'utilisation, de conservation et de protection des données personnelles sont détaillées dans la <a href="#confidentialite">Politique de confidentialité</a> d'AfriBook. La Politique de confidentialité constitue un document distinct des présentes Conditions d'utilisation.</p>
+</div></details>
+
+<details class="acc" id="u12"><summary>12. Publicité et services payants</summary><div class="accbody">
+<p>AfriBook peut proposer des services payants, notamment certains services de certification, de publicité ou d'autres fonctionnalités. Les prix, conditions et modalités de paiement applicables seront affichés avant l'achat. Les paiements peuvent être proposés par les moyens disponibles sur AfriBook, selon le pays et le service concerné.</p>
+</div></details>
+
+<details class="acc" id="u13"><summary>13. Monétisation</summary><div class="accbody">
+<p>AfriBook peut proposer des programmes de monétisation à certains utilisateurs selon des critères définis par la plateforme. L'accès à un programme de monétisation n'est pas automatiquement garanti par la création d'un compte ou par le nombre d'abonnés. AfriBook peut suspendre ou retirer la monétisation lorsqu'un compte ne respecte plus les conditions du programme.</p>
+</div></details>
+
+<details class="acc" id="u14"><summary>14. Suspension ou suppression d'un compte</summary><div class="accbody">
+<p>AfriBook peut suspendre, limiter ou supprimer un compte lorsqu'il existe une violation des présentes Conditions d'utilisation ou lorsqu'une mesure est nécessaire pour protéger la plateforme, ses utilisateurs ou son fonctionnement. Selon la situation, AfriBook peut notamment :</p>
+<ul>
+<li>supprimer une publication ;</li>
+<li>limiter certaines fonctionnalités ;</li>
+<li>suspendre temporairement un compte ;</li>
+<li>suspendre définitivement un compte ;</li>
+<li>demander une vérification d'identité.</li>
+</ul>
+<p>La gravité de la mesure peut dépendre notamment de la nature de la violation, de sa répétition et du risque créé pour les utilisateurs.</p>
+</div></details>
+
+<details class="acc" id="u15"><summary>15. Notification des décisions</summary><div class="accbody">
+<p>Lorsqu'une mesure de modération est prise, AfriBook peut informer l'utilisateur concerné de la décision et, lorsque cela est approprié, du motif général de cette décision. Lorsqu'un utilisateur a effectué un signalement, AfriBook peut également l'informer de l'issue générale du traitement de son signalement, dans les limites imposées par la confidentialité.</p>
+</div></details>
+
+<details class="acc" id="u16"><summary>16. Disponibilité du service</summary><div class="accbody">
+<p>AfriBook s'efforce de maintenir la plateforme accessible, mais ne garantit pas que le service sera disponible sans interruption. Le service peut notamment être temporairement indisponible en raison :</p>
+<ul>
+<li>de travaux de maintenance ;</li>
+<li>de problèmes techniques ;</li>
+<li>de mises à jour ;</li>
+<li>de problèmes liés aux fournisseurs de services ;</li>
+<li>de circonstances indépendantes de la volonté d'AfriBook.</li>
+</ul>
+</div></details>
+
+<details class="acc" id="u17"><summary>17. Utilisation responsable</summary><div class="accbody">
+<p>Les utilisateurs doivent utiliser AfriBook de manière responsable et respecter les autres utilisateurs. Il est interdit d'utiliser la plateforme pour porter atteinte aux droits d'autrui, frauder, tromper les utilisateurs ou contourner les mesures de sécurité.</p>
+</div></details>
+
+<details class="acc" id="u18"><summary>18. Modification des conditions</summary><div class="accbody">
+<p>AfriBook peut modifier les présentes Conditions d'utilisation afin de tenir compte de l'évolution de la plateforme, de ses fonctionnalités ou des exigences légales applicables. La version la plus récente sera publiée sur AfriBook.</p>
+</div></details>
+
+<details class="acc" id="u19"><summary>19. Nous contacter</summary><div class="accbody">
+<p>Pour toute question relative à ces conditions :</p>
+<p>E-mail : <a href="mailto:afribooksupport@gmail.com">afribooksupport@gmail.com</a><br>
+Téléphone : <a href="tel:+243971028341">+243 97 102 83 41</a></p>
+</div></details>
+</section>
+
+<footer>
+<p>AfriBook est une application développée par Tshitenge Jean Claude.<br>© 2026 AfriBook - Tous droits réservés</p>
+</footer>
+</main>
+</body>
+</html>
